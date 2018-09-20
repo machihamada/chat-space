@@ -64,13 +64,14 @@ Things you may want to cover:
 |id        |integer   |           |
 |group_name|string    |null: false|
 
-## group_users
+## members
 **association**
-belongs_to :user
 belongs_to :group
+belongs_to :user
 
-|column  |type      |
-|:-------|:---------|
-|id      |integer   |
-|user_id |references|
-|group_id|references|
+|column  |type      |onstraint                     |
+|:-------|:---------|:-----------------------------|
+|id      |integer   |                              |
+|user_id |references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
+
