@@ -42,12 +42,12 @@ Things you may want to cover:
 - belongs_to user
 - belongs_to group
 
-|column   |type      |
-|:--------|:------   |
+|column   |type      |onstraint                     |
+|:--------|:------   |:-----------------------------|
 |body     |text      |
 |image    |string    |
-|user_id  |references|
-|group_id |references|
+|user_id  |references|ull: false, foreign_key: true|
+|group_id |references|ull: false, foreign_key: true|
 
 
 
