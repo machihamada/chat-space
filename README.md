@@ -22,3 +22,53 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+## Database設計
+
+## users
+**association**
+- has_many messages
+- has_many group_users
+- has_many groups through: :group_users
+
+|column               |type   |constraint  |
+|:--------------------|:------|:-----------|
+|name                 |string |null: false |
+|email                |string |unique: true|
+
+
+
+## messsages
+**association**
+- belongs_to user
+- belongs_to group
+
+|column   |type      |onstraint                     |
+|:--------|:------   |:-----------------------------|
+|body     |text      |
+|image    |string    |
+|user_id  |references|null: false, foreign_key: true|
+|group_id |references|null: false, foreign_key: true|
+
+
+
+## groups
+**association**
+- has_many messages
+- has_many group_users
+- belongs_to users through: :group_users
+
+|column    |type      |constraint |
+|:---------|:---------|:----------|
+|group_name|string    |null: false|
+
+
+## members
+**association**
+belongs_to :group
+belongs_to :user
+
+|column  |type      |onstraint                     |
+|:-------|:---------|:-----------------------------|
+|user_id |references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
+
