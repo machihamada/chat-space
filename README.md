@@ -52,7 +52,7 @@ Things you may want to cover:
 =======
 |column   |type      |
 |:--------|:------   |
-|body     |text      |
+|content  |string      |
 |image    |string    |
 |user_id  |references|
 |group_id |references|
