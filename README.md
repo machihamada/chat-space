@@ -42,12 +42,21 @@ Things you may want to cover:
 - belongs_to user
 - belongs_to group
 
+<<<<<<< Updated upstream
 |column   |type      |onstraint                     |
 |:--------|:------   |:-----------------------------|
 |body     |text      |
 |image    |string    |
 |user_id  |references|null: false, foreign_key: true|
 |group_id |references|null: false, foreign_key: true|
+=======
+|column   |type      |
+|:--------|:------   |
+|content  |string      |
+|image    |string    |
+|user_id  |references|
+|group_id |references|
+>>>>>>> Stashed changes
 
 
 
@@ -62,7 +71,7 @@ Things you may want to cover:
 |group_name|string    |null: false|
 
 
-## members
+## group_users
 **association**
 belongs_to :group
 belongs_to :user
