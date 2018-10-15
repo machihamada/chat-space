@@ -1,32 +1,31 @@
 $(function(){
   function buildHTML(message){
     if (message.image_url) {
-      var insertImage = message.image.url
+      var insertImage = `<img src="${message.image_url}">`;
     } else {
       var insertImage = '';
     }
     var html =
                 ` <div class="message">
-                  <div class="upper-message">
-                  <div class="upper-message__user-name">
-                  ${message.name}
-                  </div>
-                  <div class="upper-message__date">
-                  <!-- = format_posted_time(message.created_at) -->
-                  ${message.date}
-                  </div>
-                  </div>
-                  <div class="lower-meesage">
-                  <p class="lower-message__content">
-                  ${message.content}
-                  </p>
-                  </div>
-                  </div>
-                  <div class="lower-meesage">
-                  <p class="lower-message__image">
-                  ${insertImage}
-                  </p>
-                  </div>
+                    <div class="upper-message">
+                      <div class="upper-message__user-name">
+                        ${message.name}
+                      </div>
+                      <div class="upper-message__date">
+                        <!-- = format_posted_time(message.created_at) -->
+                        ${message.date}
+                      </div>
+                    </div>
+                    <div class="lower-meesage">
+                      <p class="lower-message__content">
+                        ${message.content}
+                      </p>
+                    </div>
+                    <div class="lower-meesage">
+                      <p class="lower-message__image">
+                        ${insertImage}
+                      </p>
+                    </div>
                   </div>`
     return html;
   }
@@ -43,7 +42,6 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      alert('成功');
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.form__message').val('');
@@ -54,6 +52,10 @@ $(function(){
     .fail(function(){
       alert('error');
     })
+
+    .always(function(){
+      $(".form__submit").removeAttr("disabled");
+    });
 
   })
 
