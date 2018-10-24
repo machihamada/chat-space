@@ -2,6 +2,6 @@ json.array! @messages.each do |message|
   json.content     message.content
   json.image    message.image.url
   json.name     message.user.name
-  json.date     message.created_at.strftime("%Y/%-m/%-d/ %-H:%-M:%-S")
+  json.date     message.created_at.to_s(:datetime)
   json.id       message.id
 end
